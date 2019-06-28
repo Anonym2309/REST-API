@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const multer = require('multer');
-const Product = require("../models/product");
+const Product = require('../models/product');
 
 exports.image_product = (req, res, next) => {
     const storage = multer.diskStorage({
@@ -130,6 +130,7 @@ exports.products_update_product = (req, res, next) => {
     Product.updateOne({ _id: id }, { $set: updateOps })
         .exec()
         .then(result => {
+            console.log("Masuk Gan");
             res.status(200).json({
                 message: 'Product Updated',
                 request: {
