@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const multer = require('multer');
 const Product = require('../models/product');
 
 
@@ -132,10 +131,10 @@ exports.products_update_product = (req, res, next) => {
         .exec()
         .then(result => {
             res.status(200).json({
-                message: 'Product Updated',
+                message: "Product updated",
                 request: {
-                    type: 'Update',
-                    url: 'http://localhost:3000/products'
+                    type: "GET",
+                    url: "http://localhost:3000/products/" + id
                 }
             });
         })
@@ -145,7 +144,7 @@ exports.products_update_product = (req, res, next) => {
                 error: err
             });
         });
-}
+};
 
 exports.products_delete = (req, res, next) => {
     const id = req.params.productId;
